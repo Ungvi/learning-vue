@@ -5,24 +5,19 @@
       <button @click="toggleVisibility('greetingVisibility')">
         {{ greetingVisibility ? 'Hide' : 'Show' }} greeting</button>
       <p v-if="greetingVisibility">{{ greeting }}</p>
-      <section>
-        <div>
+      <div>
         <button @click="toggleVisibility('groceryListVisibility')">
           {{ groceryListVisibility ? 'Hide' : 'Show' }} grocery list
         </button>
         <ul v-if="groceryListVisibility">
           <li v-for="(grocery, index) in groceryList" :key="index">
-            {{ grocery }}
+            {{ grocery.name }} : {{ grocery.quantity }}
           </li>
         </ul>
-        </div>
-        <div>
-          <button @click="toggleVisibility('guestListVisibility')">
-            {{ guestListVisibility ? 'Hide' : 'Show' }} guest list
-          </button>
-              <guest-list v-if="guestListVisibility" :guests="guestListData"></guest-list>
-          </div>
-      </section>
+      </div>
+      <div>
+        <guest-list></guest-list>
+      </div>
     </div>
   </div>
 </template>
@@ -40,9 +35,8 @@ export default Vue.extend({
   data: () => ({
     firstName: 'Ervin',
     greetingVisibility: false,
-    groceryList: ['Carrots', 'Oats', 'Apples', 'Eggs'],
+    groceryList: [{ name: 'Carrots', quantity: 6 }, { name: 'Oats', quantity: 4 }, { name: 'Apples', quantity: 12 }, { name: 'Eggs', quantity: 30 }],
     groceryListVisibility: false,
-    guestListData: ['John', 'Jane', 'Mark'],
     guestListVisibility: false,
   }),
   // computed
@@ -61,7 +55,7 @@ export default Vue.extend({
 </script>
 
 <style>
-button {
+.demo button {
   margin: 0.5rem;
   padding: 0.5rem;
   background-color: #42b883;

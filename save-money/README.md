@@ -36,3 +36,8 @@ Example: [{ name: 'Norbi' }, { name: 'Erwin' }]
 4. How to import a component and use it
 5. How to send props to a component
 6. Create a list component and an item component. The list component will receive the array as a prop, will loop thru the array and send each item to the item component as a prop.
+
+Next level
+1. Import and use axious
+2. Find a free api endpoint and retrieve some data
+3. Send it to products and list it
