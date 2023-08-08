@@ -7,7 +7,11 @@
 
 <script>
 import Vue from 'vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 import ProductsList from '@/components/ProductsList.vue';
+
+Vue.use(VueAxios, axios);
 
 export default Vue.extend({
   name: 'TestList',
@@ -26,16 +30,11 @@ export default Vue.extend({
       // api call to the server which retireves data
       console.log('get data is called');
       // save it to the data
-      this.products = [
-        { name: 'PC', id: 1, price: 10 },
-        { name: 'PC', id: 2, price: 10 },
-        { name: 'PC', id: 3, price: 10 },
-        // { name: 'PC', id: 4, price: 10 },
-        // { name: 'PC', id: 5, price: 10 },
-        // { name: 'PC', id: 6, price: 10 },
-        // { name: 'PC', id: 7, price: 10 },
-        // { name: 'PC', id: 8, price: 10 },
-      ];
+      Vue.axios.get('https://api.publicapis.org/entries')
+        .then((resp) => {
+          this.products = resp.data.entries.slice(0, 5);
+          console.log(resp.data.entries);
+        });
     },
   },
 });

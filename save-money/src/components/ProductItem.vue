@@ -1,8 +1,8 @@
 <template>
   <div class="product-item">
-    <h5>Name: {{ product.name }}</h5>
-    <h6>Price: {{ product.price }}</h6>
-    <h6>Id: {{ product.id }}</h6>
+    <h5>Name: {{ product.API }}</h5>
+    <h6>Category: {{ product.Category }}</h6>
+    <h6>HTTPS: {{ product.HTTPS }}</h6>
   </div>
 </template>
 
