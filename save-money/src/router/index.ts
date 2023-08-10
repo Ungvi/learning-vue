@@ -26,6 +26,14 @@ const routes: Array<RouteConfig> = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "demo" */ '../views/DemoView.vue'),
   },
+  {
+    path: '/altex',
+    name: 'altex',
+    // route level code-splitting
+    // this generates a separate chunk (demo.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "altex" */ '../views/Altex.vue'),
+  },
 ];
 
 const router = new VueRouter({
