@@ -41,3 +41,15 @@ Next level
 1. Import and use axious
 2. Find a free api endpoint and retrieve some data
 3. Send it to products and list it
+
+
+Next steps:
+
+4. Create a constant file called endpoints. Folder structure should be:
+constants/endpooints.ts
+
+Create an array, with a string endpoint (for now, more to come).
+
+Instead of manually putting the endpoint into the axios function, let's use the constant file for that.
+
+5. Add at least 2-3 endpoints to the endpoint array and try to call each endpoint every 10 seconds. You will need to loop thru the array and use either interval, or setTimeout to wait the 10 seconds. We don't want to spam the system, so we have to make sure we don't make unlimited endpoint calls to the api. This is considered done, when you see in the network tab, the 10 seconds between the calls
