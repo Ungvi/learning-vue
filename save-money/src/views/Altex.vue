@@ -29,14 +29,14 @@ export default Vue.extend({
   },
   methods: {
     async startDataFetching() {
-      await this.getData();
-      setInterval(this.getData, 10000);
-    },
-    async getData() {
-      console.log('get data is called');
-      const resp = await Vue.axios.get(endpointArray);
-      this.products = resp.data.entries.slice(0, 5);
-      console.log(resp.data.entries);
+      endpointArray.forEach(async (item) => {
+        setInterval(async () => {
+          console.log('get data is called');
+          const { data } = await Vue.axios.get(item);
+          this.products = data.entries.slice(0, 5);
+          console.log(this.products);
+        }, 10000);
+      });
     },
   },
 });
